@@ -1,15 +1,14 @@
-import React, { FC } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-import './index.css'
+import '@/styles/index.css';
 
-const App = document.getElementById('root')
-const Root: FC = () => {
-  return (
-    <div className="absolute h-full w-full flex items-center justify-center bg-gray-200">
-      <span className="text-3xl">Hello, world</span>
-    </div>
-  )
-}
+import { RouterProvider } from 'react-router-dom';
+import router from '@/routes';
 
-createRoot(App!).render(<Root />)
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
